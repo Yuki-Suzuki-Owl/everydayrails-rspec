@@ -37,11 +37,12 @@ RSpec.describe Project, type: :model do
     expect(new_project.errors[:name]).to include("has already been taken")
   end
 
-  it "allows two users to share a project name" do
-    other_user = User.create(first_name:"Jane",last_name:"Tester",email:"janetester@example.com",password:"password")
-    other_project = other_user.projects.create(name:"Test Project")
-    expect(other_project).to be_valid
-  end
+  # it "allows two users to share a project name" do
+  #   other_user = User.create(first_name:"Jane",last_name:"Tester",email:"janetester@example.com",password:"password")
+  #   other_project = other_user.projects.create(name:"Test Project")
+  #   expect(other_project).to be_valid
+  # end
+  it {is_expected.to validate_uniqueness_of(:name).scoped_to(:user_id)}
 
   it "can have many notes" do
     project = FactoryBot.create(:project,:with_notes)

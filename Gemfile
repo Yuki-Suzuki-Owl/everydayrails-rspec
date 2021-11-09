@@ -19,11 +19,15 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # gem 'rspec-rails', '~> 3.6.0'
   # gem 'rspec-rails', '~> 3.9.0'
-  gem 'rspec-rails', '~> 4.0.0'
+  gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'factory_bot_rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13.0'
+  # gem 'capybara', '~> 2.13.0'
+  gem 'capybara'#, '~> 2.15.2'
   gem 'selenium-webdriver'
+  gem 'webdrivers'
+  gem 'launchy'
+  gem 'shoulda-matchers'
 end
 
 group :development do
